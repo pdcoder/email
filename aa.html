@@ -14,13 +14,15 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Jquery -->
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script
+    src="https://code.jquery.com/jquery-1.7.1.min.js"
+    integrity="sha256-iBcUE/x23aI6syuqF7EeT/+JFBxjPs5zeFJEXxumwb0="
+    crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
 
 
-
-
-
+ 
+  
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
         integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
@@ -33,6 +35,10 @@
 <body>
 
 
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
@@ -42,6 +48,7 @@
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
 
+    <div class="remove"></div>
 
     <div class="wrapper">
 
@@ -103,12 +110,7 @@
                                                     <td width=223>&nbsp;</td>
                                                     <td align="center"
                                                         style="height: 14px;color: #333333;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;text-align: center;">
-                                                        Hello, <b><input placeholder="Enter name" id="hello_text"
-                                                                type="text"
-                                                                onfocus="if(this.value==this.defaultValue)this.value='';"
-                                                                onblur="if(this.value=='')this.value=this.defaultValue;"
-                                                                onchange="this.style.width = ((this.value.length + 1) * 8) + 'px';" />!</b>
-                                                    </td>
+                                                        Hello, <b><input placeholder="Enter name" id="hello_text" type="text"  onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" onchange="this.style.width = ((this.value.length + 1) * 8) + 'px';" />!</b></td>
                                                     <td width=221>&nbsp;</td>
                                                 </tr>
                                             </tbody>
@@ -134,11 +136,7 @@
                                                 <tr>
                                                     <td align="center"
                                                         style="height: 15px;width: 500px;color: #333333;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;text-align: center;">
-                                                        <input
-                                                            placeholder="Thursday was your smallest electricity spend day last week."
-                                                            id="text" type="text"
-                                                            onchange="this.style.width = ((this.value.length + 1) * 8) + 'px';" />
-                                                    </td>
+                                                        <input placeholder="Thursday was your smallest electricity spend day last week." id="text" type="text" onchange="this.style.width = ((this.value.length + 1) * 8) + 'px';"/></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -210,8 +208,7 @@
                                                     <td width="30px" align="left">&nbsp;</td>
                                                     <td
                                                         style="height: 12px;width: 121px;color: #9F9E9F;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 26px;">
-                                                        <input placeholder="dd/mm/yy to dd/mm//yy" id="date_text"
-                                                            type="text" /></td>
+                                                        <input placeholder="dd/mm/yy to dd/mm//yy" id="date_text" type="text"/></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="30px" align="left">&nbsp;</td>
@@ -239,8 +236,7 @@
                                                                 <tr>
                                                                     <td
                                                                         style="height: 35px;width: 157px;color: #1286E4;font-family: sans-serif;font-size: 41px;font-weight: 300;line-height: 26px;">
-                                                                        $<input placeholder="85.20" id="price_text"
-                                                                            type="number" />
+                                                                        $<input placeholder="85.20" id="price_text" type="number"/>
                                                                     <td width="118px">&nbsp;</td>
                                                                     <td><img
                                                                             src="http://d2fnr989se7g4y.cloudfront.net/Up-Arrow.png">
@@ -248,8 +244,7 @@
                                                                     <td width="5px">&nbsp;</td>
                                                                     <td
                                                                         style="height: 35px;width: 126px;text-align: left;color: #323232;font-family: sans-serif;font-size: 41px;font-weight: 300;line-height: 26px;">
-                                                                        $<input placeholder="20" id="price_text2"
-                                                                            type="number" /></td>
+                                                                        $<input placeholder="20" id="price_text2" type="number"/></td>
                                                                     <td>
                                                                         <table width="130px" cellpadding="0"
                                                                             cellspacing="0">
@@ -257,10 +252,7 @@
                                                                                 <tr>
                                                                                     <td
                                                                                         style="height: 11px;width: 130px;color: #9F9E9F;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 26px;">
-                                                                                        <input
-                                                                                            placeholder="Above normal (18%)"
-                                                                                            id="info_text"
-                                                                                            type="text" /></td>
+                                                                                        <input placeholder="Above normal (18%)" id="info_text" type="text"/></td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td
@@ -384,12 +376,7 @@
             </div>
         </nav>
 
-        <div class="dr">
-            </div> 
-     
         <div class="drop-zon">
-                 
-       
             <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="font-family: sans-serif;">
                 <tbody>
                     <tr>
@@ -603,7 +590,10 @@
 
     <script type="text/javascript">
 
-       
+        $(document).ready(function(){
+            $('input').css('width',((input.getAttribute('placeholder').length + 1) * 8) + 'px');
+        });
+
         var nowCopying;
         var putBeforeThis;
 
@@ -624,6 +614,7 @@
             $('.dragger').on('dragover', function (e) {
                 var $this = $(this); // sketchy
                 var targ = $(e.target);
+
                 if ($this.parent().hasClass('drop-zone')) {
                     $this.addClass('hi-over');
                     putBeforeThis = $this;
@@ -635,28 +626,6 @@
                 });
             });
 
-            $('.dz').on('drop', function (e) {
-                alert("he");
-            e.preventDefault();
-                var isMoving = $(nowCopying.parentNode).hasClass('drop-zone');
-                var nowCop = $(nowCopying);
-
-                if (isMoving) {
-                    if (putBeforeThis) {
-                        nowCop.insertBefore(putBeforeThis[0]);
-                    } else {
-                        nowCop.appendTo(this);
-                    }
-                } else {
-                    if (putBeforeThis) {
-                        nowCop.clone(true).insertBefore(putBeforeThis[0]);
-                    } else {
-                        nowCop.clone(true).appendTo(this);
-                    }
-                }
-            });
-
-
             $('.drop-zone').on('dragover', function (e) {
                 var eTran = e.originalEvent.dataTransfer;
                 var isTxt = eTran.types[0].contains('text/plain');
@@ -666,8 +635,6 @@
 
             $('.drop-zone').on('drop', function (e) {
                 e.preventDefault();
-                alert("he");
-
                 var isMoving = $(nowCopying.parentNode).hasClass('drop-zone');
                 var nowCop = $(nowCopying);
 
@@ -690,9 +657,8 @@
         }
 
         function remove() {
-            $('.drop-zon.drop-zone:last').remove();
+            $('.drop-zone.x1:last').remove();
         }
-
         if (!String.prototype.contains) {
             String.prototype.contains = function () {
                 return String.prototype.indexOf.apply(this, arguments) !== -1;
@@ -709,7 +675,6 @@
         });
 
         $('.dragger').on('dragover', function (e) {
-           // console.log(e+"dd");
             var $this = $(this); // sketchy
             var targ = $(e.target);
 
@@ -724,16 +689,7 @@
             });
         });
 
-        $('.drop-zone').on('dragover', function (e) {
-            var eTran = e.originalEvent.dataTransfer;
-            var isTxt = eTran.types[0].contains('text/plain');
-
-            if (isTxt) { e.preventDefault(); }
-        });
-
        
-
-
         $('.drop-zone').on('drop', function (e) {
             e.preventDefault();
             var isMoving = $(nowCopying.parentNode).hasClass('drop-zone');
@@ -752,35 +708,40 @@
                     nowCop.clone(true).appendTo(this);
                 }
             }
-            $('.hi-over').removeClass('hi-over');
 
 
         });
 
         $('.d').on('dragover', function (e) {
+            alert("bjb");
             var eTran = e.originalEvent.dataTransfer;
             var isTxt = eTran.types[0].contains('text/plain');
 
             if (isTxt) { e.preventDefault(); }
         });
 
-       
-
-
         $('.d').on('drop', function (e) {
             e.preventDefault();
+            alert("cc");
             var isMoving = $(nowCopying.parentNode).hasClass('drop-zone');
             var nowCop = $(nowCopying);
 
-           
-            if(isMoving)
-            {
-                nowCop.remove();
+            if (isMoving) {
+                if (putBeforeThis) {
+                    nowCop.insertBefore(putBeforeThis[0]);
+                } else {
+                    nowCop.appendTo(this);
+                }
+            } else {
+                if (putBeforeThis) {
+                    nowCop.clone(true).insertBefore(putBeforeThis[0]);
+                } else {
+                    nowCop.clone(true).appendTo(this);
+                }
             }
 
 
         });
-
 
     </script>
 
