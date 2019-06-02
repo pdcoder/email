@@ -98,11 +98,9 @@ ul ul a {
     border-radius: 30px;
     width: 100%;
     margin-left: 320px;
+    margin-top: 150px;
 }
 
-.drop-zone.x1:hover{
-    box-shadow: 5px 5px red;
-}
 .drop-zone.x1 {
     background-color: #ccc;
     float: right;
@@ -194,14 +192,6 @@ ul ul a {
     font-weight: bold;
   }
 
- #add:hover{
-     color: green;
- }
-
- #remove:hover{
-     color: red;
- }
-
   #btn{
     background-color: #383d47;
     height: 40px;
@@ -226,11 +216,15 @@ ul ul a {
      width: 100%;
      text-align: center;
      font-weight: 100;
+     background-color: inherit;
+
  }
 
  #hello_text{
      border: none;
      text-align: right;
+     background-color: inherit;
+
  }
 
  #date_text{
@@ -239,6 +233,8 @@ ul ul a {
      font-size: 13px;
      font-weight: 300;
      line-height: 26px;
+     background-color: inherit;
+
  }
 
  #price_text{
@@ -249,6 +245,8 @@ ul ul a {
      font-weight: 300;
      line-height: 26px;
      width: 130px;
+     background-color: inherit;
+
  }
 
  #price_text2{
@@ -259,6 +257,8 @@ ul ul a {
     line-height: 26px;
     border: none;
     width:100px;
+    background-color: inherit;
+
  }
 
  #info_text{
@@ -268,12 +268,35 @@ ul ul a {
     font-weight: 300;
     line-height: 26px;
     border: none;
-    text-align: center
+    text-align: center;
+    background-color: inherit;
 
  }
 
  .dr{
-    min-height: 300px;
-    height: 200px;
+    height: 110px;
+    background-color: transparent;
     width: 100%;
+    position: fixed;
+    z-index: 444;
+    margin-left: 280px;
+
+ }
+
+ .glow-effect{
+    box-shadow:15px 40px 60px 20px red;
+ }
+
+ .drop-glow{
+     border: 5px dashed #ff4500;
+ }
+
+ #generate_html{
+    bottom: 70px;
+    position: absolute;
+    border: none;
+    width: 100%;
+    background-color: #16181c;
+    height: 60px;
+    color: white;
  }

@@ -42,7 +42,11 @@
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
 
-
+        <div class="dr" style="text-align: center">
+            <div class="glow"></div>
+            <span id="img"><img src="garbage.png" style="width:30px; height: 30px;margin-top: 3%;
+                margin-right: 20%;"></span>
+            </div> 
     <div class="wrapper">
 
         <!-- Sidebar -->
@@ -105,6 +109,7 @@
                                                         style="height: 14px;color: #333333;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;text-align: center;">
                                                         Hello, <b><input placeholder="Enter name" id="hello_text"
                                                                 type="text"
+                                                                value=""
                                                                 onfocus="if(this.value==this.defaultValue)this.value='';"
                                                                 onblur="if(this.value=='')this.value=this.defaultValue;"
                                                                 onchange="this.style.width = ((this.value.length + 1) * 8) + 'px';" />!</b>
@@ -309,10 +314,10 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td
-                                                                        style="height: 72px;width: 294px;color: #333333;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 30px;">
-                                                                        You need 3 trees to balance your CO2 impact
-                                                                        based on 867kWh this month<span
-                                                                            style="color:#FA941D">*</span>
+                                                                        >
+                                                                        <textarea placeholder="You need 3 trees to balance your CO2 impact based on 867kWh this month" 
+                                                                        rows=3 onfocus="if(this.value==this.defaultValue)this.value='';"                                                                        
+                                                                        style="background-color: inherit;border:none;width:100%;color: #333333;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 20px;overflow-wrap: break-word"></textarea>
                                                                     </td>
                                                                 </tr>
                                                                 <tr height=30>
@@ -337,7 +342,7 @@
                                 <tr>
                                     <td
                                         style="height: 15px;width: 253px;color: #333333;font-family: sans-serif;font-size: 16px;line-height: 30px;text-align: center;">
-                                        <b>Jeff:</b>
+                                        
                                         Do you have a pool pump?
                                     </td>
                                 </tr>
@@ -380,14 +385,16 @@
             </ul>
             <div id="btn">
                 <button id="add" onclick="add()">Add</button>
-                <button id="remove" onclick="remove()">Remove</button>
+                <button id="remove" onclick="removediv()">Remove</button>
+            </div>
+            <div id="generate">
+                <button id="generate_html" onclick="generate()">Generate</button>
             </div>
         </nav>
 
-        <div class="dr">
-            </div> 
+       
      
-        <div class="drop-zon">
+        <div id="drop-zon" class="drop-zon">
                  
        
             <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="font-family: sans-serif;">
@@ -604,12 +611,18 @@
     <script type="text/javascript">
 
        
+        $(document).ready(function(){
+            $("#img").hide();
+           
+        });
         var nowCopying;
         var putBeforeThis;
 
+        var name = $("#hello_text").val();
+            $("#name").val(name);
 
         function add() {
-            $('.drop').append('<div class="drop-zone x1"></div>');
+            $('.drop').append('<div class="drop drop-zone x1"></div>');
             $('.dragger').on('dragstart', function (e) {
                 var eTran = e.originalEvent.dataTransfer;
                 var mType = "text/plain";
@@ -619,6 +632,8 @@
 
             });
 
+            var bla = $('#txt_name').val();
+            $('#txt_name').val(bla);
 
 
             $('.dragger').on('dragover', function (e) {
@@ -636,7 +651,6 @@
             });
 
             $('.dz').on('drop', function (e) {
-                alert("he");
             e.preventDefault();
                 var isMoving = $(nowCopying.parentNode).hasClass('drop-zone');
                 var nowCop = $(nowCopying);
@@ -666,7 +680,6 @@
 
             $('.drop-zone').on('drop', function (e) {
                 e.preventDefault();
-                alert("he");
 
                 var isMoving = $(nowCopying.parentNode).hasClass('drop-zone');
                 var nowCop = $(nowCopying);
@@ -689,8 +702,12 @@
             });
         }
 
-        function remove() {
-            $('.drop-zon.drop-zone:last').remove();
+        function removediv() {
+            var $this = $(this); // sketchy
+
+                $('.drop.drop-zone.x1:last').remove();
+
+            
         }
 
         if (!String.prototype.contains) {
@@ -729,9 +746,14 @@
             var isTxt = eTran.types[0].contains('text/plain');
 
             if (isTxt) { e.preventDefault(); }
+            var $this = $(this);
+            $this.addClass("drop-glow");
+
         });
 
-       
+        $('.drop-zone').on('dragleave', function (e) {
+            $(this).removeClass('drop-glow');
+        });
 
 
         $('.drop-zone').on('drop', function (e) {
@@ -753,34 +775,47 @@
                 }
             }
             $('.hi-over').removeClass('hi-over');
+            $(this).removeClass('drop-glow');
 
 
         });
 
-        $('.d').on('dragover', function (e) {
+        $('.dr').on('dragover', function (e) {
             var eTran = e.originalEvent.dataTransfer;
             var isTxt = eTran.types[0].contains('text/plain');
-
+            $('.glow').addClass('glow-effect');
+            $("#img").show();
             if (isTxt) { e.preventDefault(); }
         });
 
-       
+        $('.dr').on('dragleave', function (e) {
+            $('.glow').removeClass('glow-effect');
+            $("#img").hide();
+
+        });
 
 
-        $('.d').on('drop', function (e) {
+        $('.dr').on('drop', function (e) {
             e.preventDefault();
             var isMoving = $(nowCopying.parentNode).hasClass('drop-zone');
             var nowCop = $(nowCopying);
+            $("#img").hide();
 
            
             if(isMoving)
             {
                 nowCop.remove();
+
             }
+            $('.glow').removeClass('glow-effect');
 
 
         });
 
+        function generate(){
+            var doc = document.getElementById("drop-zon");
+            console.log(doc);
+        }
 
     </script>
 
