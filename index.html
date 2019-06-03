@@ -28,6 +28,10 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
         crossorigin="anonymous"></script>
+
+        <style>
+           
+            </style>
 </head>
 
 <body>
@@ -42,11 +46,11 @@
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
 
-        <div class="dr" style="text-align: center">
-            <div class="glow"></div>
-            <span id="img"><img src="garbage.png" style="width:30px; height: 30px;margin-top: 3%;
+    <div class="dr" style="text-align: center">
+        <div class="glow"></div>
+        <span id="img"><img src="garbage.png" style="width:30px; height: 30px;margin-top: 3%;
                 margin-right: 20%;"></span>
-            </div> 
+    </div>
     <div class="wrapper">
 
         <!-- Sidebar -->
@@ -108,11 +112,12 @@
                                                     <td align="center"
                                                         style="height: 14px;color: #333333;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;text-align: center;">
                                                         Hello, <b><input placeholder="Enter name" id="hello_text"
-                                                                type="text"
-                                                                value=""
+                                                                type="text" value="" style="border: none;
+                                                                text-align: right;
+                                                                background-color: inherit;"
                                                                 onfocus="if(this.value==this.defaultValue)this.value='';"
                                                                 onblur="if(this.value=='')this.value=this.defaultValue;"
-                                                                onchange="this.style.width = ((this.value.length + 1) * 8) + 'px';" />!</b>
+                                                                onchange="this.style.width = ((this.value.length + 1) * 8) + 'px';" /></b>
                                                     </td>
                                                     <td width=221>&nbsp;</td>
                                                 </tr>
@@ -141,7 +146,11 @@
                                                         style="height: 15px;width: 500px;color: #333333;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;text-align: center;">
                                                         <input
                                                             placeholder="Thursday was your smallest electricity spend day last week."
-                                                            id="text" type="text"
+                                                            id="text" type="text" style="border: none;
+                                                            width: 100%;
+                                                            text-align: center;
+                                                            font-weight: 100;
+                                                            background-color: inherit;"
                                                             onchange="this.style.width = ((this.value.length + 1) * 8) + 'px';" />
                                                     </td>
                                                 </tr>
@@ -215,8 +224,12 @@
                                                     <td width="30px" align="left">&nbsp;</td>
                                                     <td
                                                         style="height: 12px;width: 121px;color: #9F9E9F;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 26px;">
-                                                        <input placeholder="dd/mm/yy to dd/mm//yy" id="date_text"
-                                                            type="text" /></td>
+                                                        <input placeholder="dd/mm/yy to dd/mm//yy" id="date_text" style=" border: none;
+                                                        color: #9F9E9F;
+                                                        font-size: 13px;
+                                                        font-weight: 300;
+                                                        line-height: 26px;
+                                                        background-color: inherit;" type="text" /></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="30px" align="left">&nbsp;</td>
@@ -245,7 +258,14 @@
                                                                     <td
                                                                         style="height: 35px;width: 157px;color: #1286E4;font-family: sans-serif;font-size: 41px;font-weight: 300;line-height: 26px;">
                                                                         $<input placeholder="85.20" id="price_text"
-                                                                            type="number" />
+                                                                            style=" border: none;
+                                                                        color: #1286E4;
+                                                                        font-family: sans-serif;
+                                                                        font-size: 41px;
+                                                                        font-weight: 300;
+                                                                        line-height: 26px;
+                                                                        width: 130px;
+                                                                        background-color: inherit;" type="number" />
                                                                     <td width="118px">&nbsp;</td>
                                                                     <td><img
                                                                             src="http://d2fnr989se7g4y.cloudfront.net/Up-Arrow.png">
@@ -253,7 +273,14 @@
                                                                     <td width="5px">&nbsp;</td>
                                                                     <td
                                                                         style="height: 35px;width: 126px;text-align: left;color: #323232;font-family: sans-serif;font-size: 41px;font-weight: 300;line-height: 26px;">
-                                                                        $<input placeholder="20" id="price_text2"
+                                                                        $<input placeholder="20" style="color: #323232;
+                                                                        font-family: sans-serif;
+                                                                        font-size: 41px;
+                                                                        font-weight: 300;
+                                                                        line-height: 26px;
+                                                                        border: none;
+                                                                        width:100px;
+                                                                        background-color: inherit;" id="price_text2"
                                                                             type="number" /></td>
                                                                     <td>
                                                                         <table width="130px" cellpadding="0"
@@ -264,8 +291,15 @@
                                                                                         style="height: 11px;width: 130px;color: #9F9E9F;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 26px;">
                                                                                         <input
                                                                                             placeholder="Above normal (18%)"
-                                                                                            id="info_text"
-                                                                                            type="text" /></td>
+                                                                                            id="info_text" style="color: #9F9E9F;
+                                                                                            font-family: sans-serif;
+                                                                                            font-size: 13px;
+                                                                                            font-weight: 300;
+                                                                                            line-height: 26px;
+                                                                                            border: none;
+                                                                                            text-align: center;
+                                                                                            background-color: inherit;
+                                                                                        " type="text" /></td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td
@@ -313,11 +347,12 @@
                                                                     <td>&nbsp;</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td
-                                                                        >
-                                                                        <textarea placeholder="You need 3 trees to balance your CO2 impact based on 867kWh this month" 
-                                                                        rows=3 onfocus="if(this.value==this.defaultValue)this.value='';"                                                                        
-                                                                        style="background-color: inherit;border:none;width:100%;color: #333333;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 20px;overflow-wrap: break-word"></textarea>
+                                                                    <td>
+                                                                        <textarea
+                                                                            placeholder="You need 3 trees to balance your CO2 impact based on 867kWh this month"
+                                                                            rows=3
+                                                                            onfocus="if(this.value==this.defaultValue)this.value='';"
+                                                                            style="background-color: inherit;border:none;width:100%;color: #333333;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 20px;overflow-wrap: break-word"></textarea>
                                                                     </td>
                                                                 </tr>
                                                                 <tr height=30>
@@ -342,7 +377,7 @@
                                 <tr>
                                     <td
                                         style="height: 15px;width: 253px;color: #333333;font-family: sans-serif;font-size: 16px;line-height: 30px;text-align: center;">
-                                        
+
                                         Do you have a pool pump?
                                     </td>
                                 </tr>
@@ -392,11 +427,14 @@
             </div>
         </nav>
 
-       
-     
-        <div id="drop-zon" class="drop-zon">
-                 
-       
+
+
+        <div id="drop-zon" class="drop-zon" style="margin: 40px;
+        border-radius: 30px;
+        width: 100%;
+        margin-left: 320px;
+        margin-top: 100px;">
+
             <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="font-family: sans-serif;">
                 <tbody>
                     <tr>
@@ -418,9 +456,19 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="drop-zone x1">
+            <div class="drop-zone x1" style=" background-color: #ccc;
+            float: right;
+            min-height: 300px;
+            height: 200px;
+            position: relative;
+            width: 100%;">
             </div>
-            <div class="drop-zone x2">
+            <div class="drop-zone x2" style=" background-color: #ccc;
+            float: right;
+            min-height: 300px;
+            height: 200px;
+            position: relative;
+            width: 100%;">
             </div>
             <div class="drop"></div>
             <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="font-family: sans-serif;">
@@ -610,19 +658,22 @@
 
     <script type="text/javascript">
 
-       
-        $(document).ready(function(){
+
+        $(document).ready(function () {
             $("#img").hide();
-           
+            times = 3;
         });
+        var times;
         var nowCopying;
         var putBeforeThis;
 
         var name = $("#hello_text").val();
-            $("#name").val(name);
+        $("#name").val(name);
 
         function add() {
-            $('.drop').append('<div class="drop drop-zone x1"></div>');
+
+            times++;
+            $('.drop').append('<div style="background-color: #ccc; float: right;min-height: 300px;height: 200px;position: relative;width: 100%;" class="drop-zone '+times+'"></div>');
             $('.dragger').on('dragstart', function (e) {
                 var eTran = e.originalEvent.dataTransfer;
                 var mType = "text/plain";
@@ -651,7 +702,7 @@
             });
 
             $('.dz').on('drop', function (e) {
-            e.preventDefault();
+                e.preventDefault();
                 var isMoving = $(nowCopying.parentNode).hasClass('drop-zone');
                 var nowCop = $(nowCopying);
 
@@ -703,11 +754,10 @@
         }
 
         function removediv() {
-            var $this = $(this); // sketchy
 
-                $('.drop.drop-zone.x1:last').remove();
+            $('.drop > .drop-zone:last').remove();
 
-            
+
         }
 
         if (!String.prototype.contains) {
@@ -726,7 +776,7 @@
         });
 
         $('.dragger').on('dragover', function (e) {
-           // console.log(e+"dd");
+            // console.log(e+"dd");
             var $this = $(this); // sketchy
             var targ = $(e.target);
 
@@ -801,9 +851,8 @@
             var nowCop = $(nowCopying);
             $("#img").hide();
 
-           
-            if(isMoving)
-            {
+
+            if (isMoving) {
                 nowCop.remove();
 
             }
@@ -812,7 +861,7 @@
 
         });
 
-        function generate(){
+        function generate() {
             var doc = document.getElementById("drop-zon");
             console.log(doc);
         }
