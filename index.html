@@ -14,11 +14,30 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="style.css">
 
+
+    <link rel="stylesheet" type="text/css" href="themes/default.css" />
+
+    <script src="https://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
+
+
     <!-- Jquery -->
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 
 
+    <script type="text/javascript" src="scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.popline.js"></script>
+    <script type="text/javascript" src="scripts/plugins/jquery.popline.link.js"></script>
+    <script type="text/javascript" src="scripts/plugins/jquery.popline.blockquote.js"></script>
+    <script type="text/javascript" src="scripts/plugins/jquery.popline.decoration.js"></script>
+    <script type="text/javascript" src="scripts/plugins/jquery.popline.list.js"></script>
+    <script type="text/javascript" src="scripts/plugins/jquery.popline.justify.js"></script>
+    <script type="text/javascript" src="scripts/plugins/jquery.popline.blockformat.js"></script>
+    <script type="text/javascript" src="scripts/plugins/jquery.popline.social.js"></script>
+    <script type="text/javascript" src="scripts/plugins/jquery.popline.backcolor.js"></script>
+
+
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 
     <!-- Font Awesome JS -->
@@ -29,9 +48,59 @@
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
         crossorigin="anonymous"></script>
 
-        <style>
-           
-            </style>
+    <style>
+        .drop-zone.x3 {
+            background-color: #ccc;
+            float: right;
+            min-height: 300px;
+            height: 200px;
+            position: relative;
+            width: 100%
+        }
+
+        .drop-zone.x1>.dragger.drag-style.cd {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            border-radius: 0
+        }
+
+        .drop-zone.x2>.dragger.drag-style.cd {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            border-radius: 0
+        }
+
+        .drop-zone>.dragger.drag-style.cd {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            border-radius: 0
+        }
+
+        li>.dragger.drag-style.cd>button {
+            display: none;
+        }
+
+        .cd {
+            background-color: #fff;
+            height: 90px;
+            border-radius: 10px;
+            margin: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 25px
+        }
+
+        li>.dragger.drag-style.cd>#table {
+            display: none
+        }
+
+        .drop-zone>.dragger.drag-style.cd>p#modules {
+            display: none
+        }
+    </style>
 </head>
 
 <body>
@@ -51,214 +120,233 @@
         <span id="img"><img src="garbage.png" style="width:30px; height: 30px;margin-top: 3%;
                 margin-right: 20%;"></span>
     </div>
-    <div class="wrapper">
+    <div id="wrap">
+        <div class="wrapper" id="wrapper">
 
-        <!-- Sidebar -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Components</h3>
-            </div>
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Components</h3>
+                </div>
 
-            <ul class="list-unstyled components">
-                <li>
-                    <div draggable="true" class="dragger drag-style cd">
-                        <p id="modules">Hello Module</p>
-                        <table id="table" width="100%" cellpadding="0" cellspacing="0" style="font-family: sans-serif;">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td height=30>&nbsp;</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td width=291>&nbsp;</td>
-                                                    <td align="center"><img
-                                                            src="http://d2fnr989se7g4y.cloudfront.net/Lightning-Bolt.png" />
-                                                    </td>
-                                                    <td width=291>&nbsp;</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td height=15>&nbsp;</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0"
-                                            style="font-family: sans-serif;">
-                                            <tbody>
-                                                <tr>
-                                                    <td width=223>&nbsp;</td>
-                                                    <td align="center"
-                                                        style="height: 14px;color: #333333;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;text-align: center;">
-                                                        Hello, <b><input placeholder="Enter name" id="hello_text"
-                                                                type="text" value="" style="border: none;
+                <ul class="list-unstyled components">
+                    <li>
+                        <div draggable="true" class="dragger drag-style cd">
+                            <p id="modules">Hello Module</p>
+                            <button type="button" class="btn btn-default btn-sm" id="myColorPickerPopover">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <table id="table" width="100%" cellpadding="0" cellspacing="0"
+                                style="font-family: sans-serif;">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td height=30>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width=291>&nbsp;</td>
+                                                        <td align="center"><img
+                                                                src="http://d2fnr989se7g4y.cloudfront.net/Lightning-Bolt.png" />
+                                                        </td>
+                                                        <td width=291>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td height=15>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" cellpadding="0" cellspacing="0"
+                                                style="font-family: sans-serif;">
+                                                <tbody>
+                                                    <tr>
+
+
+                                                            <div class="editor" contenteditable="true">
+                                                                Prakash</div>
+                                                                    <input placeholder="Enter name"
+                                                                    
+                                                                id="hello_text" type="text" value="" style="border: none;
                                                                 text-align: right;
                                                                 background-color: inherit;"
                                                                 onfocus="if(this.value==this.defaultValue)this.value='';"
                                                                 onblur="if(this.value=='')this.value=this.defaultValue;"
-                                                                onchange="this.style.width = ((this.value.length + 1) * 8) + 'px';" /></b>
-                                                    </td>
-                                                    <td width=221>&nbsp;</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td height=23>&nbsp;</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0"
-                                            style="font-family: sans-serif;">
-                                            <tbody>
-                                                <tr>
-                                                    <td align="center"
-                                                        style="height: 15px;width: 500px;color: #333333;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;text-align: center;">
-                                                        <input
-                                                            placeholder="Thursday was your smallest electricity spend day last week."
-                                                            id="text" type="text" style="border: none;
+                                                                onchange="this.style.width = ((this.value.length + 1) * 8) + 'px';" />
+                                                        
+                                                        <!-- <input placeholder="Enter name" id="hello_text" type="text"
+                                                                value="" style="border: none;
+                                                                text-align: right;
+                                                                background-color: inherit;"
+                                                                onfocus="if(this.value==this.defaultValue)this.value='';"
+                                                                onblur="if(this.value=='')this.value=this.defaultValue;"
+                                                                onchange="this.style.width = ((this.value.length + 1) * 8) + 'px';" /> -->
+
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" cellpadding="0" cellspacing="0"
+                                                style="font-family: sans-serif;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="center"
+                                                            style="height: 15px;width: 500px;color: #333333;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;text-align: center;">
+                                                            <div class="editor" contenteditable="true">
+                                                                <input
+                                                                    placeholder="Thursday was your smallest electricity spend day last week."
+                                                                    id="text" type="text" style="border: none;
                                                             width: 100%;
                                                             text-align: center;
                                                             font-weight: 100;
                                                             background-color: inherit;"
-                                                            onchange="this.style.width = ((this.value.length + 1) * 8) + 'px';" />
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td height=23>&nbsp;</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0"
-                                            style="font-family: sans-serif;">
-                                            <tbody>
-                                                <tr>
-                                                    <td align="center"
-                                                        style="height: 15px;width: 310px;color: #333333;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;text-align: center;">
-                                                        Find out more on your <a href="#" style="color: #1286E4">energy
-                                                            portal</a>.</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td height=23>&nbsp;</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                                                    onchange="this.style.width = ((this.value.length + 1) * 8) + 'px';" />
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td height=23>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" cellpadding="0" cellspacing="0"
+                                                style="font-family: sans-serif;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="center"
+                                                            style="height: 15px;width: 310px;color: #333333;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;text-align: center;">
+                                                            Find out more on your <a href="#"
+                                                                style="color: #1286E4">energy
+                                                                portal</a>.</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td height=23>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
-                    </div>
+                        </div>
 
-                </li>
-                <li>
-                    <div draggable="true" class="dragger drag-style cd">
-                        <p id="modules">Summary Module</p>
-                        <table width="100%" cellpadding="0" cellspacing="0" style="font-family: sans-serif;" id="table">
-                            <tbody>
-                                <tr>
-                                    <td width="20px">&nbsp;</td>
-                                    <td width="100%">
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td height="29">&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td width="30px" align="left">&nbsp;</td>
-                                                    <td
-                                                        style="height: 12px;width: 121px;color: #9F9E9F;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 26px;">
-                                                        <input placeholder="dd/mm/yy to dd/mm//yy" id="date_text" style=" border: none;
+                    </li>
+                    <li>
+                        <div draggable="true" class="dragger drag-style cd">
+                            <p id="modules">Summary Module</p>
+                            <table width="100%" cellpadding="0" cellspacing="0" style="font-family: sans-serif;"
+                                id="table">
+                                <tbody>
+                                    <tr>
+                                        <td width="20px">&nbsp;</td>
+                                        <td width="100%">
+                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td height="29">&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="30px" align="left">&nbsp;</td>
+                                                        <td
+                                                            style="text-align:center;height: 12px;width: 121px;color: #9F9E9F;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 26px;">
+                                                            <input placeholder="dd/mm/yy to dd/mm//yy" id="date_text"
+                                                                style=" border: none;
                                                         color: #9F9E9F;
                                                         font-size: 13px;
                                                         font-weight: 300;
                                                         line-height: 26px;
                                                         background-color: inherit;" type="text" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="30px" align="left">&nbsp;</td>
-                                                    <td
-                                                        style="height: 21px;width: 368px;color: #323232;font-family: sans-serif;font-size: 23px;font-weight: 300;line-height: 26px;">
-                                                        Your Electricity Usage Summary</td>
-                                                </tr>
-                                                <tr height="21">
-                                                    <td>&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="30px" align="left">&nbsp;</td>
-                                                    <td
-                                                        style="height: 12px;width: 68px;color: #9F9E9F;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;">
-                                                        Amount</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="30px" align="left">&nbsp;</td>
-                                                    <td>
-                                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td
-                                                                        style="height: 35px;width: 157px;color: #1286E4;font-family: sans-serif;font-size: 41px;font-weight: 300;line-height: 26px;">
-                                                                        $<input placeholder="85.20" id="price_text"
-                                                                            style=" border: none;
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="30px" align="left">&nbsp;</td>
+                                                        <td
+                                                            style="text-align:center;height: 21px;width: 368px;color: #323232;font-family: sans-serif;font-size: 23px;font-weight: 300;line-height: 26px;">
+                                                            Your Electricity Usage Summary</td>
+                                                    </tr>
+                                                    <tr height="21">
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="30px" align="left">&nbsp;</td>
+                                                        <td
+                                                            style="height: 12px;width: 68px;color: #9F9E9F;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;">
+                                                            Amount</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="30px" align="left">&nbsp;</td>
+                                                        <td>
+                                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td
+                                                                            style="height: 35px;width: 157px;color: #1286E4;font-family: sans-serif;font-size: 41px;font-weight: 300;line-height: 26px;">
+                                                                            $<input placeholder="85.20" id="price_text"
+                                                                                style=" border: none;
                                                                         color: #1286E4;
                                                                         font-family: sans-serif;
                                                                         font-size: 41px;
@@ -266,14 +354,14 @@
                                                                         line-height: 26px;
                                                                         width: 130px;
                                                                         background-color: inherit;" type="number" />
-                                                                    <td width="118px">&nbsp;</td>
-                                                                    <td><img
-                                                                            src="http://d2fnr989se7g4y.cloudfront.net/Up-Arrow.png">
-                                                                    </td>
-                                                                    <td width="5px">&nbsp;</td>
-                                                                    <td
-                                                                        style="height: 35px;width: 126px;text-align: left;color: #323232;font-family: sans-serif;font-size: 41px;font-weight: 300;line-height: 26px;">
-                                                                        $<input placeholder="20" style="color: #323232;
+                                                                        <td width="118px">&nbsp;</td>
+                                                                        <td><img
+                                                                                src="http://d2fnr989se7g4y.cloudfront.net/Up-Arrow.png">
+                                                                        </td>
+                                                                        <td width="5px">&nbsp;</td>
+                                                                        <td
+                                                                            style="height: 35px;width: 126px;text-align: left;color: #323232;font-family: sans-serif;font-size: 41px;font-weight: 300;line-height: 26px;">
+                                                                            $<input placeholder="20" style="color: #323232;
                                                                         font-family: sans-serif;
                                                                         font-size: 41px;
                                                                         font-weight: 300;
@@ -281,17 +369,17 @@
                                                                         border: none;
                                                                         width:100px;
                                                                         background-color: inherit;" id="price_text2"
-                                                                            type="number" /></td>
-                                                                    <td>
-                                                                        <table width="130px" cellpadding="0"
-                                                                            cellspacing="0">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td
-                                                                                        style="height: 11px;width: 130px;color: #9F9E9F;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 26px;">
-                                                                                        <input
-                                                                                            placeholder="Above normal (18%)"
-                                                                                            id="info_text" style="color: #9F9E9F;
+                                                                                type="number" /></td>
+                                                                        <td>
+                                                                            <table width="130px" cellpadding="0"
+                                                                                cellspacing="0">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            style="height: 11px;width: 130px;color: #9F9E9F;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 26px;">
+                                                                                            <input
+                                                                                                placeholder="Above normal (18%)"
+                                                                                                id="info_text" style="color: #9F9E9F;
                                                                                             font-family: sans-serif;
                                                                                             font-size: 13px;
                                                                                             font-weight: 300;
@@ -300,443 +388,425 @@
                                                                                             text-align: center;
                                                                                             background-color: inherit;
                                                                                         " type="text" /></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td
-                                                                                        style="height: 12px;width: 75px;color: #1286E4;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 26px;">
-                                                                                        <a href=""
-                                                                                            style="color: #1286E4;">Learn
-                                                                                            more</a></td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                                <tr height="26">
-                                                    <td>&nbsp;</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                    <td width="30px">&nbsp;</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </li>
-                <li>
-                    <div draggable="true" class="dragger drag-style cd">
-                        <p id="modules">Insights Module</p>
-                        <table id="table" width="100%" cellpadding="0" cellspacing="0" style="font-family: sans-serif;">
-                            <tbody>
-                                <tr>
-                                    <td><img src="http://d2fnr989se7g4y.cloudfront.net/trees.png" /></td>
-                                    <td>
-                                        <table width="350" cellpadding="0" cellspacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td width=30>&nbsp;</td>
-                                                    <td width=294>
-                                                        <table width="294" cellpadding="0" cellspacing="0">
-                                                            <tbody>
-                                                                <tr height=30>
-                                                                    <td>&nbsp;</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <textarea
-                                                                            placeholder="You need 3 trees to balance your CO2 impact based on 867kWh this month"
-                                                                            rows=3
-                                                                            onfocus="if(this.value==this.defaultValue)this.value='';"
-                                                                            style="background-color: inherit;border:none;width:100%;color: #333333;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 20px;overflow-wrap: break-word"></textarea>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr height=30>
-                                                                    <td>&nbsp;</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                    <td width=26>&nbsp;</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table id="table" width="100%" cellpadding="0" cellspacing="0" style="font-family: sans-serif;">
-                            <tbody>
-                                <tr height=29>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td
-                                        style="height: 15px;width: 253px;color: #333333;font-family: sans-serif;font-size: 16px;line-height: 30px;text-align: center;">
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td
+                                                                                            style="height: 12px;width: 75px;color: #1286E4;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 26px;">
+                                                                                            <a href=""
+                                                                                                style="color: #1286E4;">Learn
+                                                                                                more</a></td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr height="26">
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td width="30px">&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div draggable="true" class="dragger drag-style cd">
+                            <p id="modules">Insights Module</p>
+                            <table id="table" width="100%" cellpadding="0" cellspacing="0"
+                                style="font-family: sans-serif;">
+                                <tbody>
+                                    <tr>
+                                        <td><img src="http://d2fnr989se7g4y.cloudfront.net/trees.png" /></td>
+                                        <td>
+                                            <table width="350" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width=30>&nbsp;</td>
+                                                        <td width=294>
+                                                            <table width="294" cellpadding="0" cellspacing="0">
+                                                                <tbody>
+                                                                    <tr height=30>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <textarea
+                                                                                placeholder="You need 3 trees to balance your CO2 impact based on 867kWh this month"
+                                                                                rows=3
+                                                                                onfocus="if(this.value==this.defaultValue)this.value='';"
+                                                                                style="background-color: inherit;border:none;width:100%;color: #333333;font-family: sans-serif;font-size: 13px;font-weight: 300;line-height: 20px;overflow-wrap: break-word"></textarea>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr height=30>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                        <td width=26>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table id="table" width="100%" cellpadding="0" cellspacing="0"
+                                style="font-family: sans-serif;">
+                                <tbody>
+                                    <tr height=29>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            style="height: 15px;width: 253px;color: #333333;font-family: sans-serif;font-size: 16px;line-height: 30px;text-align: center;">
 
-                                        Do you have a pool pump?
-                                    </td>
-                                </tr>
-                                <tr height=17>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td width=170>&nbsp;</td>
+                                            Do you have a pool pump?
+                                        </td>
+                                    </tr>
+                                    <tr height=17>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width=170>&nbsp;</td>
 
-                                                    <td style="width: 120px;height: 50px;background-color: #39C11A;">
-                                                        <a style="text-decoration: none;" href="#">
-                                                            <span
-                                                                style="height: 12px;width: 34px;color: #FFFFFF;font-family: sans-serif;font-size: 17px;font-weight: bold;line-height: 26px;text-align: center;margin:43px">YES</span></a>
-                                                    </td>
+                                                        <td
+                                                            style="width: 120px;height: 50px;background-color: #39C11A;">
+                                                            <a style="text-decoration: none;" href="#">
+                                                                <span
+                                                                    style="height: 12px;width: 34px;color: #FFFFFF;font-family: sans-serif;font-size: 17px;font-weight: bold;line-height: 26px;text-align: center;margin:43px">YES</span></a>
+                                                        </td>
 
-                                                    <td width=20>&nbsp;</td>
+                                                        <td width=20>&nbsp;</td>
 
-                                                    <td style="width: 120px;height: 50px;background-color: #39C11A;">
-                                                        <a style="text-decoration: none;" href="#">
-                                                            <span
-                                                                style="height: 12px;width: 34px;color: #FFFFFF;font-family: sans-serif;font-size: 17px;font-weight: bold;line-height: 26px;text-align: center;margin:43px;">NO</span></a>
-                                                    </td>
-                                                    <td width=170>&nbsp;</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr height=30>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </li>
-            </ul>
-            <div id="btn">
-                <button id="add" onclick="add()">Add</button>
-                <button id="remove" onclick="removediv()">Remove</button>
-            </div>
-            <div id="generate">
-                <button id="generate_html" onclick="generate()">Generate</button>
-            </div>
-        </nav>
+                                                        <td
+                                                            style="width: 120px;height: 50px;background-color: #39C11A;">
+                                                            <a style="text-decoration: none;" href="#">
+                                                                <span
+                                                                    style="height: 12px;width: 34px;color: #FFFFFF;font-family: sans-serif;font-size: 17px;font-weight: bold;line-height: 26px;text-align: center;margin:43px;">NO</span></a>
+                                                        </td>
+                                                        <td width=170>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr height=30>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                </ul>
+                <div id="btn">
+                    <button id="add" onclick="add()">Add</button>
+                    <button id="remove" onclick="removediv()">Remove</button>
+                </div>
+
+                <div id="generate">
+                    <button id="generate_html" onclick="generate()" data-toggle="modal"
+                        data-target="#myModal">Generate</button>
+                </div>
+            </nav>
 
 
-
-        <div id="drop-zon" class="drop-zon" style="margin: 40px;
+            <div id="drop-zon" class="drop-zon" style="margin: 40px;
         border-radius: 30px;
         width: 100%;
+
         margin-left: 320px;
         margin-top: 100px;">
 
-            <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="font-family: sans-serif;">
-                <tbody>
-                    <tr>
-                        <td height="11px">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td width="19px">&nbsp;</td>
-                        <td><img src="http://d2fnr989se7g4y.cloudfront.net/Logo.png"></td>
-                        <td width="198px">&nbsp;</td>
-                        <td><img src="http://d2fnr989se7g4y.cloudfront.net/Location.png"></td>
-                        <td width="10px">&nbsp;</td>
-                        <td
-                            style="height: 12px;width: 185px;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 25px;">
-                            700 Brentwood Court</td>
-                        <td width="19px">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td height="11px">&nbsp;</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="drop-zone x1" style=" background-color: #ccc;
+                <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="font-family: sans-serif;">
+                    <tbody>
+                        <tr>
+                            <td height="11px">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td width="19px">&nbsp;</td>
+                            <td><img src="http://d2fnr989se7g4y.cloudfront.net/Logo.png"></td>
+                            <td width="198px">&nbsp;</td>
+                            <td><img src="http://d2fnr989se7g4y.cloudfront.net/Location.png"></td>
+                            <td width="10px">&nbsp;</td>
+                            <td
+                                style="height: 12px;width: 185px;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 25px;">
+                                700 Brentwood Court</td>
+                            <td width="19px">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td height="11px">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="drop-zone x1" style=" background-color: #ccc;
             float: right;
             min-height: 300px;
             height: 200px;
             position: relative;
             width: 100%;">
-            </div>
-            <div class="drop-zone x2" style=" background-color: #ccc;
+
+                </div>
+                <div class="drop-zone x2" style=" background-color: #ccc;
             float: right;
             min-height: 300px;
             height: 200px;
             position: relative;
             width: 100%;">
+
+                </div>
+                <div class="drop"></div>
+                <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="font-family: sans-serif;">
+                    <tbody>
+                        <tr height=29>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td
+                                style="height: 14px;width: 214px;color: #333333;font-family: sans-serif;font-size: 19px;font-weight: bold;line-height: 26px;text-align: center;">
+                                Was this email useful?
+                            </td>
+                        </tr>
+                        <tr height=29>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+                                    <tbody>
+                                        <tr>
+                                            <td width=97>&nbsp;</td>
+                                            <td style="float: right;">
+                                                <a href="" style="text-decoration: none;"><img
+                                                        src="http://d2fnr989se7g4y.cloudfront.net/Thumbs-Up.png" /></a>
+                                            </td>
+                                            <td width=20>&nbsp;</td>
+                                            <td>
+                                                <a href="" style="text-decoration: none;"><img
+                                                        src="http://d2fnr989se7g4y.cloudfront.net/Thumbs-Down.png" /></a>
+                                            </td>
+                                            <td width=97>&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr height=30>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#E5F1FC" style="font-family: sans-serif;"
+                    s>
+                    <tbody>
+                        <tr height=40>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#E5F1FC">
+                                    <tbody>
+                                        <tr>
+                                            <td width=182.5>&nbsp;</td>
+                                            <td>
+                                                <a href=""><img
+                                                        src="http://d2fnr989se7g4y.cloudfront.net/Facebook.png" /></a>
+                                            </td>
+                                            <td width=15>&nbsp;</td>
+                                            <td>
+                                                <a href=""><img
+                                                        src="http://d2fnr989se7g4y.cloudfront.net/Twitter.png" /></a>
+                                            </td>
+                                            <td width=15>&nbsp;</td>
+                                            <td>
+                                                <a href=""><img
+                                                        src="http://d2fnr989se7g4y.cloudfront.net/Linkedin.png" /></a>
+                                            </td>
+                                            <td width=15>&nbsp;</td>
+                                            <td>
+                                                <a href=""><img
+                                                        src="http://d2fnr989se7g4y.cloudfront.net/Youtube.png" /></a>
+                                            </td>
+                                            <td width=15>&nbsp;</td>
+                                            <td>
+                                                <a href=""><img
+                                                        src="http://d2fnr989se7g4y.cloudfront.net/Instagram.png" /></a>
+                                            </td>
+                                            <td width=182.5>&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr height=39>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#E5F1FC">
+                                    <tbody>
+                                        <tr>
+                                            <td width=23>&nbsp;</td>
+                                            <td
+                                                style="height: 68px;width: 554px;color:#878A8D;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;">
+                                                <span style="color: #FA941D">*</span> - The carbon footprint calculator
+                                                is not designed to be 100% accurate.It is simply to give you an
+                                                indication on how much carbon dioxide you generate and how many trees it
+                                                would take to offset
+                                            </td>
+                                            <td width=23>&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr height=22>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#E5F1FC">
+                                    <tbody>
+                                        <tr>
+                                            <td width=23>&nbsp;</td>
+                                            <td
+                                                style="height: 93px;width: 558px;color: #878A8D;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;text-align: center;">
+                                                All dollar amounts are rounded to the nearest dollar and represent
+                                                actual electric usage. Monthly facility charges, fees, additional
+                                                services taxes, etc are not included<br> This email was sent to
+                                                a_user@yahoo com
+                                            </td>
+                                            <td width=23>&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr height=37>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#E5F1FC">
+                                    <tbody>
+                                        <tr>
+                                            <td width=52>&nbsp;</td>
+                                            <td
+                                                style="height: 12px;width: 104px;color: #1286E4;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;">
+                                                <a href="" style="text-decoration: none;color: #1286E4">Unsubscribe</a>
+                                            </td>
+                                            <td width=28>&nbsp;</td>
+                                            <td
+                                                style="height: 15px;width: 117px;color: #1286E4;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;">
+                                                <a href="" style="text-decoration: none;color: #1286E4">Privacy
+                                                    Policy</a>
+                                            </td>
+                                            <td width=29>&nbsp;</td>
+                                            <td
+                                                style="height: 15px;width: 218px;color: #1286E4;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;">
+                                                <a href=""
+                                                    style="text-decoration: none;color: #1286E4">custservice@utilityco.com</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr height=37>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#E5F1FC">
+                                    <tbody>
+                                        <tr>
+                                            <td width=65>&nbsp;</td>
+                                            <td
+                                                style="height: 36px;width: 470px;color: #8C8C8C;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 34px;text-align: center;">
+                                                Utility Co. - 128 Saratoga Ave - River Valley - ST - 11245
+                                                -<br />1-613-555-1234
+                                            </td>
+                                            <td width=65>&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr height=40>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="drop"></div>
-            <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="font-family: sans-serif;">
-                <tbody>
-                    <tr height=29>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td
-                            style="height: 14px;width: 214px;color: #333333;font-family: sans-serif;font-size: 19px;font-weight: bold;line-height: 26px;text-align: center;">
-                            Was this email useful?
-                        </td>
-                    </tr>
-                    <tr height=29>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
-                                <tbody>
-                                    <tr>
-                                        <td width=97>&nbsp;</td>
-                                        <td>
-                                            <a href="" style="text-decoration: none;"><img
-                                                    src="http://d2fnr989se7g4y.cloudfront.net/Thumbs-Up.png" /></a>
-                                        </td>
-                                        <td>
-                                            <a href="" style="text-decoration: none;"><img
-                                                    src="http://d2fnr989se7g4y.cloudfront.net/Thumbs-Down.png" /></a>
-                                        </td>
-                                        <td width=97>&nbsp;</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr height=30>
-                        <td>&nbsp;</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#E5F1FC" style="font-family: sans-serif;" s>
-                <tbody>
-                    <tr height=40>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#E5F1FC">
-                                <tbody>
-                                    <tr>
-                                        <td width=182.5>&nbsp;</td>
-                                        <td>
-                                            <a href=""><img
-                                                    src="http://d2fnr989se7g4y.cloudfront.net/Facebook.png" /></a>
-                                        </td>
-                                        <td width=15>&nbsp;</td>
-                                        <td>
-                                            <a href=""><img
-                                                    src="http://d2fnr989se7g4y.cloudfront.net/Twitter.png" /></a>
-                                        </td>
-                                        <td width=15>&nbsp;</td>
-                                        <td>
-                                            <a href=""><img
-                                                    src="http://d2fnr989se7g4y.cloudfront.net/Linkedin.png" /></a>
-                                        </td>
-                                        <td width=15>&nbsp;</td>
-                                        <td>
-                                            <a href=""><img
-                                                    src="http://d2fnr989se7g4y.cloudfront.net/Youtube.png" /></a>
-                                        </td>
-                                        <td width=15>&nbsp;</td>
-                                        <td>
-                                            <a href=""><img
-                                                    src="http://d2fnr989se7g4y.cloudfront.net/Instagram.png" /></a>
-                                        </td>
-                                        <td width=182.5>&nbsp;</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr height=39>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#E5F1FC">
-                                <tbody>
-                                    <tr>
-                                        <td width=23>&nbsp;</td>
-                                        <td
-                                            style="height: 68px;width: 554px;color:#878A8D;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;">
-                                            <span style="color: #FA941D">*</span> - The carbon footprint calculator
-                                            is not designed to be 100% accurate.It is simply to give you an
-                                            indication on how much carbon dioxide you generate and how many trees it
-                                            would take to offset
-                                        </td>
-                                        <td width=23>&nbsp;</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr height=22>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#E5F1FC">
-                                <tbody>
-                                    <tr>
-                                        <td width=23>&nbsp;</td>
-                                        <td
-                                            style="height: 93px;width: 558px;color: #878A8D;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;text-align: center;">
-                                            All dollar amounts are rounded to the nearest dollar and represent
-                                            actual electric usage. Monthly facility charges, fees, additional
-                                            services taxes, etc are not included<br> This email was sent to
-                                            a_user@yahoo com
-                                        </td>
-                                        <td width=23>&nbsp;</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr height=37>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#E5F1FC">
-                                <tbody>
-                                    <tr>
-                                        <td width=52>&nbsp;</td>
-                                        <td
-                                            style="height: 12px;width: 104px;color: #1286E4;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;">
-                                            <a href="" style="text-decoration: none;color: #1286E4">Unsubscribe</a>
-                                        </td>
-                                        <td width=28>&nbsp;</td>
-                                        <td
-                                            style="height: 15px;width: 117px;color: #1286E4;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;">
-                                            <a href="" style="text-decoration: none;color: #1286E4">Privacy
-                                                Policy</a>
-                                        </td>
-                                        <td width=29>&nbsp;</td>
-                                        <td
-                                            style="height: 15px;width: 218px;color: #1286E4;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 26px;">
-                                            <a href=""
-                                                style="text-decoration: none;color: #1286E4">custservice@utilityco.com</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr height=37>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#E5F1FC">
-                                <tbody>
-                                    <tr>
-                                        <td width=65>&nbsp;</td>
-                                        <td
-                                            style="height: 36px;width: 470px;color: #8C8C8C;font-family: sans-serif;font-size: 17px;font-weight: 300;line-height: 34px;text-align: center;">
-                                            Utility Co. - 128 Saratoga Ave - River Valley - ST - 11245
-                                            -<br />1-613-555-1234
-                                        </td>
-                                        <td width=65>&nbsp;</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr height=40>
-                        <td>&nbsp;</td>
-                    </tr>
-                </tbody>
-            </table>
+
+
         </div>
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Code</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text">Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
 
+        </div>
     </div>
 
-
     <script type="text/javascript">
-
 
         $(document).ready(function () {
             $("#img").hide();
             times = 3;
+            $(".editor").popline();
         });
         var times;
         var nowCopying;
         var putBeforeThis;
-
         var name = $("#hello_text").val();
         $("#name").val(name);
-
         function add() {
-
             times++;
-            $('.drop').append('<div style="background-color: #ccc; float: right;min-height: 300px;height: 200px;position: relative;width: 100%;" class="drop-zone '+times+'"></div>');
-            $('.dragger').on('dragstart', function (e) {
-                var eTran = e.originalEvent.dataTransfer;
-                var mType = "text/plain";
-                nowCopying = e.target;
-                eTran.setData(mType, 'Some text');
-
-
-            });
+            $('.drop').append('<div style="background-color: #ccc; float: right;min-height: 300px;height: 200px;position: relative;width: 100%;" class="drop-zone ' + times + '"></div>');
 
             var bla = $('#txt_name').val();
             $('#txt_name').val(bla);
 
 
-            $('.dragger').on('dragover', function (e) {
-                var $this = $(this); // sketchy
-                var targ = $(e.target);
-                if ($this.parent().hasClass('drop-zone')) {
-                    $this.addClass('hi-over');
-                    putBeforeThis = $this;
-                }
-
-                targ.on('dragleave', function (e) {
-                    targ.removeClass('hi-over');
-                    putBeforeThis = undefined;
-                });
-            });
-
-            $('.dz').on('drop', function (e) {
-                e.preventDefault();
-                var isMoving = $(nowCopying.parentNode).hasClass('drop-zone');
-                var nowCop = $(nowCopying);
-
-                if (isMoving) {
-                    if (putBeforeThis) {
-                        nowCop.insertBefore(putBeforeThis[0]);
-                    } else {
-                        nowCop.appendTo(this);
-                    }
-                } else {
-                    if (putBeforeThis) {
-                        nowCop.clone(true).insertBefore(putBeforeThis[0]);
-                    } else {
-                        nowCop.clone(true).appendTo(this);
-                    }
-                }
-            });
-
-
             $('.drop-zone').on('dragover', function (e) {
                 var eTran = e.originalEvent.dataTransfer;
                 var isTxt = eTran.types[0].contains('text/plain');
-
                 if (isTxt) { e.preventDefault(); }
             });
-
             $('.drop-zone').on('drop', function (e) {
-                e.preventDefault();
-
+                // e.preventDefault();
                 var isMoving = $(nowCopying.parentNode).hasClass('drop-zone');
                 var nowCop = $(nowCopying);
-
+                console.log(isMoving);
+                console.log(nowCop);
                 if (isMoving) {
                     if (putBeforeThis) {
+                        // $('.drop-zone.x2 .dragger.drag-style.cd:not(:first)').remove();
+                        //$('.drop-zone > .dragger.drag-style.cd:not(:first)').remove();
                         nowCop.insertBefore(putBeforeThis[0]);
                     } else {
                         nowCop.appendTo(this);
@@ -748,16 +818,17 @@
                         nowCop.clone(true).appendTo(this);
                     }
                 }
-
-
+                $parent = $('.drop-zone').children().length;
+                if ($parent > 1) {
+                    $('.drop-zone > .dragger.drag-style.cd:not(:first)').remove();
+                }
             });
+
+
         }
-
         function removediv() {
-
             $('.drop > .drop-zone:last').remove();
-
-
+            $('.drop-zone.x2 .dragger.drag-style.cd:not(:first)').remove();
         }
 
         if (!String.prototype.contains) {
@@ -765,42 +836,32 @@
                 return String.prototype.indexOf.apply(this, arguments) !== -1;
             };
         }
-
         $('.dragger').on('dragstart', function (e) {
             var eTran = e.originalEvent.dataTransfer;
             var mType = "text/plain";
             nowCopying = e.target;
             eTran.setData(mType, 'Some text');
-
-
         });
-
         $('.dragger').on('dragover', function (e) {
             // console.log(e+"dd");
             var $this = $(this); // sketchy
             var targ = $(e.target);
-
             if ($this.parent().hasClass('drop-zone')) {
                 $this.addClass('hi-over');
                 putBeforeThis = $this;
             }
-
             targ.on('dragleave', function (e) {
                 targ.removeClass('hi-over');
                 putBeforeThis = undefined;
             });
         });
-
         $('.drop-zone').on('dragover', function (e) {
             var eTran = e.originalEvent.dataTransfer;
             var isTxt = eTran.types[0].contains('text/plain');
-
             if (isTxt) { e.preventDefault(); }
             var $this = $(this);
             $this.addClass("drop-glow");
-
         });
-
         $('.drop-zone').on('dragleave', function (e) {
             $(this).removeClass('drop-glow');
         });
@@ -810,9 +871,9 @@
             e.preventDefault();
             var isMoving = $(nowCopying.parentNode).hasClass('drop-zone');
             var nowCop = $(nowCopying);
-
             if (isMoving) {
                 if (putBeforeThis) {
+                    // $('.drop-zone.x2 .dragger.drag-style.cd:not(:first)').remove();
                     nowCop.insertBefore(putBeforeThis[0]);
                 } else {
                     nowCop.appendTo(this);
@@ -826,9 +887,15 @@
             }
             $('.hi-over').removeClass('hi-over');
             $(this).removeClass('drop-glow');
-
+            $parent = $('.drop-zone').children().length;
+            console.log($parent);
+            if ($parent > 1) {
+                $('.drop-zone > .dragger.drag-style.cd:not(:first)').remove();
+            }
 
         });
+
+
 
         $('.dr').on('dragover', function (e) {
             var eTran = e.originalEvent.dataTransfer;
@@ -837,34 +904,81 @@
             $("#img").show();
             if (isTxt) { e.preventDefault(); }
         });
-
         $('.dr').on('dragleave', function (e) {
             $('.glow').removeClass('glow-effect');
             $("#img").hide();
-
         });
-
-
         $('.dr').on('drop', function (e) {
             e.preventDefault();
             var isMoving = $(nowCopying.parentNode).hasClass('drop-zone');
             var nowCop = $(nowCopying);
             $("#img").hide();
-
-
             if (isMoving) {
                 nowCop.remove();
-
             }
             $('.glow').removeClass('glow-effect');
-
-
         });
-
         function generate() {
-            var doc = document.getElementById("drop-zon");
-            console.log(doc);
+            $("input").prop('disabled', true);
+            $('#drop-zon').css('margin-left', 0);
+            $('#drop-zon').css('margin', '100px 90px 40px 90px');
+            $('.dr').remove();
+            var nwres = $('#sidebar').remove();
+            var doc = document.getElementById("wrap");
+            var str = "<head><style>.wrapper{display:flex;align-items:stretch}#sidebar{min-width:280px;max-width:280px;min-height:100vh;max-height:100%;position:fixed;z-index:1}#sidebar.active{margin-left:-280px}body{font-family:Poppins,sans-serif;background:#fafafa}p{font-family:Poppins,sans-serif;font-size:1.1em;font-weight:300;line-height:1.7em;color:#999}a,a:focus,a:hover{color:inherit;text-decoration:none;transition:all .3s}#sidebar{background:#515866;color:#fff;transition:all .3s}#sidebar .sidebar-header{padding:20px;background:#383d47}#sidebar ul.components{padding:20px 20px}#sidebar ul p{color:#000;padding:10px}p#modules{font-family:fantasy;color:#000;display:inline-block}#sidebar ul li a{padding:10px;font-size:1.1em;display:block}#sidebar ul li a:hover{color:#7386d5;background:#fff}#sidebar ul li.active>a,a[aria-expanded=true]{color:#fff;background:#6d7fcc}ul ul a{font-size:.9em!important;padding-left:30px!important;background:#6d7fcc}.drop-zone.x3{background-color:#ccc;float:right;min-height:300px;height:200px;position:relative;width:100%}.drop-zone.x1>.dragger.drag-style.cd{width:100%;height:100%;background-color:#f0f8ff;margin:0;border-radius:0}.drop-zone.x2>.dragger.drag-style.cd{width:100%;height:100%;background-color:#fff;margin:0;border-radius:0}.drop-zone>.dragger.drag-style.cd{width:100%;height:100%;background-color:#f0f8ff;margin:0;border-radius:0}.cd{background-color:#fff;height:90px;border-radius:10px;margin:10px;margin-bottom:20px;text-align:center;}li>.dragger.drag-style.cd>#table{display:none}.drop-zone>.dragger.drag-style.cd>p#modules{display:none}.list-unstyled.components{overflow-x:hidden;overflow-x:auto}#add{float:left;width:50%;height:100%;border:none;background-color:#383d47;color:#fff;font-weight:700}#remove{float:right;width:50%;height:100%;border:none;background-color:#383d47;color:#fff;font-weight:700}#btn{background-color:#383d47;height:40px;width:100%;text-align:center;padding:25px;padding-bottom:45px;bottom:60px;position:absolute}.dr{height:110px;background-color:transparent;width:100%;position:fixed;z-index:444;margin-left:280px}.glow-effect{box-shadow:15px 40px 60px 20px red}.drop-glow{border:5px dashed #ff4500}#generate_html{bottom:0;position:absolute;border:none;width:100%;background-color:#16181c;height:60px;color:#fff}</style></head><body>";
+            //var res = str + doc + "</body>";
+            $(".modal-text").text(format(doc, 0).innerHTML);
         }
+
+        function format(node, level) {
+
+            var indentBefore = new Array(level++ + 1).join('  '),
+                indentAfter = new Array(level - 1).join('  '),
+                textNode;
+
+            for (var i = 0; i < node.children.length; i++) {
+
+                textNode = document.createTextNode('\n' + indentBefore);
+                node.insertBefore(textNode, node.children[i]);
+
+                format(node.children[i], level);
+
+                if (node.lastElementChild == node.children[i]) {
+                    textNode = document.createTextNode('\n' + indentAfter);
+                    node.appendChild(textNode);
+                }
+            }
+
+            return node;
+        }
+
+
+        YUI().use(
+            'aui-color-picker-popover',
+            function (Y) {
+                var colorPicker = new Y.ColorPickerPopover(
+                    {
+                        trigger: '#myColorPickerPopover',
+                        zIndex: 2
+                    }
+                ).render();
+                // setTimeout($(el2).trigger('mouseenter'), 2000);
+                colorPicker.on('select',
+                    function (event) {
+                        var el = event.target.get('trigger');
+                        var el2 = $(el).parent();
+
+                        $('.drop-zone.x1 > .dragger.drag-style.cd').on('mouseenter mouseleave', el2, function () {
+                            console.log($(this));
+                            $(this).css({ 'backgroundColor': event.color });
+
+                        });
+
+
+                    }
+                );
+            }
+        );
 
     </script>
 
